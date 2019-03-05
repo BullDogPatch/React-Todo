@@ -9,7 +9,7 @@ function TodoList(props) {
                     <Todo 
                         task={todo.task}
                         completed={todo.completed}
-                        key={todo.task} 
+                        key={todo.id} 
                         function={() => props.function(index)}
                     />
                 )

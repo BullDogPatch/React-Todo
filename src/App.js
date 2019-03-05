@@ -3,17 +3,6 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
-//filler list for starting out. 
-const currentList = [
-  {
-    task: "Eat Chicken",
-    completed: false
-  },{
-    task: "Eat Pizza",
-    completed: false
-  }
-]
-
 //todo  list App. 
 class App extends React.Component {
   constructor(){
@@ -21,7 +10,7 @@ class App extends React.Component {
 
     //set initial state and input menu
     this.state = {
-      list: currentList,
+      list: [],
       task: ''
     }
   }
@@ -36,7 +25,8 @@ class App extends React.Component {
     event.preventDefault();
     let newTask = {
       task: this.state.task,
-      completed: false
+      completed: false,
+      id: Date.now()
     }
     this.setState(prevState => {
       return {
@@ -55,7 +45,8 @@ class App extends React.Component {
         if(j === i) {
           let newTask = {
             task: item.task,
-            completed: !item.completed
+            completed: !item.completed,
+            id: item.id
           }
           return newTask
         } else {

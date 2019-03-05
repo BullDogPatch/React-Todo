@@ -1,0 +1,8 @@
+.singleTodo{
+    color: black;
+}
+
+.complete{
+    color: red;
+    text-decoration-line: line-through;
+}
