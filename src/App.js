@@ -61,12 +61,24 @@ class App extends React.Component {
     })
   };
 
+  clearComplete = event => {
+    event.preventDefault();
+    this.setState(prevState => {
+      const list = prevState.list.filter(item => {
+        return !item.completed
+      })
+      return {
+        list,
+      };
+    })
+  };
+
   render() {
     return (
       <div>
         <TodoList list={this.state.list} function={this.completeTask}/>
           <div>
-            <TodoForm functions={this}/>
+            <TodoForm submitFunction={this}/>
           </div>
       </div>
 
