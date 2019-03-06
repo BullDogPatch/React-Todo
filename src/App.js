@@ -84,7 +84,6 @@ class App extends React.Component {
   render() {
     return (
       <div className={"appContainer"}>
-      <h2>Todo List</h2>
         <TodoForm 
           submitFunction={this}
         />

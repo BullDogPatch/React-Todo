@@ -1,6 +1,12 @@
+body{
+    background-color: rgb(71, 71, 71);
+    font-family: Tahoma, sans-serif;
+}
+
 .appContainer{
     display: flex;
     justify-content: center;
     flex-direction: column;
 
 }
+

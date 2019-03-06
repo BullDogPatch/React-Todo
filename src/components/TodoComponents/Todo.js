@@ -10,13 +10,17 @@ class Todo extends React.Component {
         this.myElement = null;
         // reference to the animation
         this.myTween = null;
-        
+        this.outTween = null;
     }
 
     componentDidMount(){
         // use the node ref to create the animation
         this.myTween = TweenLite.from(this.myElement, 0.25, {x: -300});
-      }
+    }
+
+    componentWillUnmount(){
+        this.outTween = TweenLite.to(this.myElement, 0.25, {x: -300});   
+    }
 
     render(){
         return (

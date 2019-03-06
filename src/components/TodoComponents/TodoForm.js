@@ -9,12 +9,11 @@ function TodoForm(props) {
                     value={props.submitFunction.state.task} 
                     onChange={props.submitFunction.inputChangeHandler} 
                     placeholder="New Task" 
-                />
+                /><br></br>
                 <button type="submit">Add To List</button>
+                <button type="submit" onClick={props.submitFunction.clearComplete}>Clear Completed</button>
             </form>
-            <form onSubmit={props.submitFunction.clearComplete}>
-                <button type="submit">Clear Completed</button>
-            </form>
+
         </div>
     )
 }
