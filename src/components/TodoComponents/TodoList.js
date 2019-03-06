@@ -4,7 +4,7 @@ import './Todo.css';
 
 function TodoList(props) {
     return (
-        <div className={"todoListContainer"}>
+        <div className={"todoListContainer"} >
             {props.list.map((todo, index) => {
                 return (
                     <Todo 

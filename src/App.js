@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import "./App.css";
 
 import TodoList from './components/TodoComponents/TodoList';
@@ -9,6 +10,7 @@ import TodoForm from './components/TodoComponents/TodoForm';
 class App extends React.Component {
   constructor(){
     super();
+
 
     //set initial state and input menu
     this.state = {
@@ -25,6 +27,7 @@ class App extends React.Component {
     //handles form submissions on submit. creates a newTask object with current input field value. pushes the task to the state.list and resets the task to empty.
   formSubmitHandler = event => {
     event.preventDefault();
+    if(this.state.task != ''){
     let newTask = {
       task: this.state.task,
       completed: false,
@@ -36,6 +39,7 @@ class App extends React.Component {
         task: ''
       };
     });
+    }
   };
 
   //this is an onclick function for each individual todo task. 
@@ -75,6 +79,8 @@ class App extends React.Component {
     })
   };
 
+//ref={div => this.myElement = div}
+
   render() {
     return (
       <div className={"appContainer"}>
@@ -82,7 +88,7 @@ class App extends React.Component {
         <TodoForm 
           submitFunction={this}
         />
-        <TodoList 
+        <TodoList
           list={this.state.list} 
           function={this.completeTask}
         />
