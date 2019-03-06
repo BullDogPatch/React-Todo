@@ -2,7 +2,7 @@ import React from 'react';
 
 function TodoForm(props) {
     return(
-        <div>
+        <div className={"todoFormContainer"}>
             <form onSubmit={props.submitFunction.formSubmitHandler}>
                 <input 
                     name="task" 

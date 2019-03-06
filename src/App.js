@@ -1,5 +1,7 @@
 import React from 'react';
 
+import "./App.css";
+
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
@@ -75,11 +77,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <TodoList list={this.state.list} function={this.completeTask}/>
-          <div>
-            <TodoForm submitFunction={this}/>
-          </div>
+      <div className={"appContainer"}>
+      <h2>Todo List</h2>
+        <TodoForm 
+          submitFunction={this}
+        />
+        <TodoList 
+          list={this.state.list} 
+          function={this.completeTask}
+        />
       </div>
 
     );

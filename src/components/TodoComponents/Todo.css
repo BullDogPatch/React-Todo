@@ -1,8 +1,28 @@
+.todoListContainer{
+    width: 50%;
+}
+
+.todoFormContainer{
+    width: 50%;
+}
+
 .singleTodo{
+    margin: 10px 0px 10px -10px;
+    padding: 10px;
+    height: 25px;
+
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    background-color: palevioletred;
     color: black;
+
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
 }
 
 .complete{
-    color: red;
-    text-decoration-line: line-through;
+
+    background-color: lightskyblue;
+    color: white;
 }

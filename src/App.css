@@ -1,0 +1,6 @@
+.appContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: rgb(44, 44, 44);
+}
