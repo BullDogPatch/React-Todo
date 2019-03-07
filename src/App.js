@@ -11,14 +11,23 @@ class App extends React.Component {
   constructor(){
     super();
 
+    console.log(localStorage.getItem('list'))
 
     //set initial state and input menu
     this.state = {
-      list: [],
+      list: this.localStorageList(),
       task: ''
     }
   }
 
+  localStorageList = () => {
+    const localList = localStorage.getItem('list')
+    if (localList) {
+      return JSON.parse(localList);
+    }
+    return [];
+  }
+  
     //handles input changes on input form. sets the state.task to whatever input form value is.
   inputChangeHandler = event => {
     this.setState({ task: event.target.value });
@@ -27,13 +36,14 @@ class App extends React.Component {
     //handles form submissions on submit. creates a newTask object with current input field value. pushes the task to the state.list and resets the task to empty.
   formSubmitHandler = event => {
     event.preventDefault();
-    if(this.state.task != ''){
+    if(this.state.task !== ''){
     let newTask = {
       task: this.state.task,
       completed: false,
       id: Date.now()
     }
     this.setState(prevState => {
+      localStorage.setItem('list', JSON.stringify([...prevState.list, newTask]));
       return {
         list: [...prevState.list, newTask],
         task: ''
@@ -59,12 +69,12 @@ class App extends React.Component {
           return item
         }
       });
-      
       //after mapping, returns the complete list (we are in setState)
       return {
-        list,
+        list
       };
     })
+
   };
 
   clearComplete = event => {
@@ -73,10 +83,12 @@ class App extends React.Component {
       const list = prevState.list.filter(item => {
         return !item.completed
       })
+      localStorage.setItem('list', JSON.stringify(list));
       return {
         list,
       };
     })
+    
   };
 
 //ref={div => this.myElement = div}
